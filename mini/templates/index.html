@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Preterm</title>
+</head>
+<body>
+    <center>
+        <h2>Enter the details to predict:</h2>
+        <form id="predictForm" method="post" action="/predict">
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name="Age" required><br><br>
+            
+            <label for="BMI">BMI:</label>
+            <input type="text" id="BMI" name="BMI" required><br><br>
+            
+            <label for="fFN">fFN:</label>
+            <input type="text" id="fFN" name="fFN" required><br><br>
+            
+            <label for="Diabetes">Diabetes (0 or 1):</label>
+            <input type="text" id="Diabetes" name="Diabetes" required><br><br>
+            
+            <label for="Asthma">Asthma (0 or 1):</label>
+            <input type="text" id="Asthma" name="Asthma" required><br><br>
+            
+            <label for="Count Contraction">Count Contraction:</label>
+            <input type="text" id="CountContraction" name="Count Contraction" required><br><br>
+            
+            <label for="lenght of contraction">Length of Contraction:</label>
+            <input type="text" id="LengthContraction" name="lenght of contraction" required><br><br>
+            
+            <label for="chronic hypertension">Chronic Hypertension (0 or 1):</label>
+            <input type="text" id="ChronicHypertension" name="chronic hypertension" required><br><br>
+            
+            <label for="hypertensive disorders of pregnancy">Hypertensive Disorders of Pregnancy (0 or 1):</label>
+            <input type="text" id="HypertensiveDisorders" name="hypertensive disorders of pregnancy" required><br><br>
+            
+            <button type="submit">PREDICT</button>
+        </form>
+        <br>
+        <h2>Prediction Result:</h2>
+        <p>{{ prediction }}</p>
+    </center>
+</body>
+</html>

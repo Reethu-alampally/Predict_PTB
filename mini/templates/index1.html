@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Preterm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{{ url_for('static', filename='images/pregcar.jpg') }}"); 
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 90vh;
+            margin: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h2 {
+            font-family: 'Lucida Calligraphy';
+            position: absolute;
+            top: 0.2px;
+            left: 10px;
+            background-color: #eee1e1d6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .container {
+            min-width: 350px;
+            max-height: 650px;
+            background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 50%;
+             /* Place the top edge of the container at the vertical center of the screen */
+            left: 70%; /* Place the left edge of the container at the horizontal center of the screen */
+            transform: translate(-50%, -50%);
+        }
+
+       
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .form-control {
+            width:  calc(100% - 24px);
+            padding: 10px;
+            font-size: 13px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input {
+            padding: 3px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 120px; /* Push the button to the bottom of the container */
+            margin-top: -20px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #prediction {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .red-text {
+            color: red;
+        }
+        .green-text {
+            color: #008000; /* Green */
+        }
+
+        .purple-text {
+            color: #800080; /* Purple */
+        }
+
+        .teal-text {
+            color: #00CED1; /* Teal */
+        }
+
+        .orange-text {
+            color: #6b81a8; /* Orange */
+        }
+
+        .navy-text {
+            color:  #516689; /* Navy Blue */
+        }
+    </style>
+</head>
+<body>
+   
+    <h2 class="navy-text">Let's Predict <span class="red-text">PTB</span> for a Step Towards Healthier Beginnings</h2>
+    <form id="predictForm" method="post" action="/predict">
+        <form id="predictForm" method="post" action="/predict">
+            <div class="container"><br>
+            
+            <input type="number" id="Age" name="Age" placeholder="Age" step="1" style="height: 25px; width: 300px;" required><br><br>
+            
+           <!-- <label for="BMI">BMI:</label>-->
+            <input type="number" id="BMI" name="BMI" placeholder="BMI" style="height: 25px; width: 300px;"required><br><br>
+            
+             <!-- <label for="fFN">fFN:</label>-->
+            <input type="number" id="fFN" name="fFN" placeholder="fFN" style="height: 25px; width: 300px;"required><br><br>
+            
+             <!-- <label for="Diabetes">Diabetes (0 or 1):</label>-->
+            <input type="number" id="Diabetes" name="Diabetes" placeholder="Diabetes" min="0" max="1" step="1" style="height: 25px; width: 300px;"required><br><br>
+            
+             <!-- <label for="Asthma">Asthma (0 or 1):</label>-->
+            <input type="number" id="Asthma" name="Asthma" placeholder="Asthma" min="0" max="1" step="1" style="height: 25px; width: 300px;"required><br><br>
+            
+             <!-- <label for="Count Contraction">Count Contraction:</label>-->
+            <input type="number" id="CountContraction" name="Count Contraction" placeholder="Count Contraction"style="height: 25px; width: 300px;"required><br><br>
+            
+             <!-- <label for="lenght of contraction">Length of Contraction:</label>-->
+            <input type="number" id="LengthContraction" name="lenght of contraction" placeholder="Length of Contraction"style="height: 25px; width: 300px;" required><br><br>
+            
+             <!-- <label for="chronic hypertension">Chronic Hypertension (0 or 1):</label>-->
+            <input type="number" id="ChronicHypertension" name="chronic hypertension" placeholder="Chronic Hypertension"style="height: 25px; width: 300px;" required><br><br>
+            
+            <!--  <label for="hypertensive disorders of pregnancy">Hypertensive Disorders of Pregnancy (0 or 1):</label>-->
+            <input type="number" id="HypertensiveDisorders" name="hypertensive disorders of pregnancy" placeholder="Hypertensive Disorders of Pregnancy"style="height: 25px; width: 300px;" required><br><br>
+            
+            <button type="submit">PREDICT</button>
+        </form>
+        <br>
+        
+        <p>{{ prediction }}</p>
+    </div>
+</body>
+</html>
